@@ -77,7 +77,10 @@ input, select, textarea {
 	@-ms-viewport {
 		width: device-width;
 	}
-
+/* 
+For screen-width 480px, html and body container width can't be < 320px 
+Purpose: So the box can't scale smaller till you can't see
+*/
 	@media screen and (max-width: 480px) {
 
 		html, body {
@@ -114,7 +117,10 @@ input, select, textarea {
 	html {
 		font-size: 16pt;
 	}
-
+		/* For up to screen-width: 1680px
+		For print, cannot scale 
+		1 pt = 1/72 inch
+		Purpose: As width gets larger, all rem units scale up*/
 		@media screen and (max-width: 1680px) {
 
 			html {
@@ -122,7 +128,7 @@ input, select, textarea {
 			}
 
 		}
-
+		
 		@media screen and (max-width: 736px) {
 
 			html {
@@ -130,7 +136,7 @@ input, select, textarea {
 			}
 
 		}
-
+		
 		@media screen and (max-width: 360px) {
 
 			html {
@@ -225,7 +231,9 @@ input, select, textarea {
 	h6 {
 		font-size: 0.6rem;
 	}
-
+	/* 
+	For up to width: 736px, h1 and line-height scale up
+	*/
 	@media screen and (max-width: 736px) {
 
 		h1 {
@@ -347,7 +355,11 @@ input, select, textarea {
 				form > .fields > .field.quarter {
 					width: calc(25% - 0.375rem);
 				}
-
+		/* 
+		calc keyword - calculation function? can you remove it?
+		makes form space width: 100% and adds space?
+		margin uses negative
+		*/
 		@media screen and (max-width: 480px) {
 
 			form > .fields {
@@ -683,7 +695,11 @@ input, select, textarea {
 			.image.main img {
 				width: 100%;
 			}
-
+		/* 
+		Wish there was some way to search in chrome console!
+		<736px width, margin is 2rem,
+		in short: larger the screen-width, larger the span img margin
+		*/
 		@media screen and (max-width: 736px) {
 
 			.image.main {
@@ -821,9 +837,12 @@ input, select, textarea {
 			ul.actions.fit.stacked {
 				width: 100%;
 			}
-
+		/* 
+		<480px width: flex-direction column, width: 100%, important! :not(.fixed)??
+		In short: makes input fields and buttons 100% width
+		*/
 		@media screen and (max-width: 480px) {
-
+			
 			ul.actions:not(.fixed) {
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;
@@ -846,7 +865,7 @@ input, select, textarea {
 					text-align: center;
 					width: 100%;
 				}
-
+				/* what is > * ?? */
 					ul.actions:not(.fixed) li > * {
 						width: 100%;
 					}
@@ -1195,7 +1214,9 @@ input, select, textarea {
 			}
 
 		}
-
+		/* 
+		Larger the screen, the more top/bot padding
+		*/
 		@media screen and (max-width: 736px) {
 
 			#wrapper {
@@ -1398,6 +1419,9 @@ input, select, textarea {
 				opacity: 0;
 			}
 
+			/* 
+			Hides <br>?
+			*/
 		@media screen and (max-width: 980px) {
 
 			#header .content p br {
@@ -1405,7 +1429,9 @@ input, select, textarea {
 			}
 
 		}
-
+		/* 
+		< 736px width, squishes header top margin
+		*/
 		@media screen and (max-width: 736px) {
 
 			#header > * {
@@ -1436,6 +1462,9 @@ input, select, textarea {
 			}
 
 		}
+		/*
+		Less squishiness in header padding, <480px width, nav ul = flex column, displays none : nav-middle
+		*/
 
 		@media screen and (max-width: 480px) {
 
@@ -1455,7 +1484,8 @@ input, select, textarea {
 					min-width: 10rem;
 					max-width: 100%;
 				}
-
+				/* no idea what this is*/
+				
 					#header nav ul li {
 						border-left: 0;
 						border-top: solid 1px #ffffff;
@@ -1575,6 +1605,9 @@ input, select, textarea {
 				#main article .close:active:before {
 					background-color: rgba(255, 255, 255, 0.175);
 				}
+		/* 
+		< 736px width, < padding in each article window
+		*/
 
 		@media screen and (max-width: 736px) {
 
